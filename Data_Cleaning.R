@@ -1,5 +1,3 @@
-glimpse(dataset)
-
 convert_datetime <- function() {
   ### Converting date time column to date and time
   dataset$Date <- as.Date(dataset$trans_date_trans_time)

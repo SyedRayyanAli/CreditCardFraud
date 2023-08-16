@@ -14,6 +14,11 @@ loader <- function() {
   library(kaggler) 
   library(utils)  # for download.file function
   library(tidyverse)  # for working with data
+  library(ggplot2)
+  library(plotly)
+  library(dplyr)
+  library(lubridate)
+  
 }
 
 
