@@ -1,4 +1,4 @@
-packages <- c("kaggler","devtools")
+packages <- c("kaggler","devtools","randomForest","performanceEstimation")
 
 installer <- function() {
   if(identical(setdiff(packages, rownames(installed.packages())),character(0))) {
@@ -18,6 +18,10 @@ loader <- function() {
   library(plotly)
   library(dplyr)
   library(lubridate)
+  library(caret)
+  library(randomForest)
+  library(ranger)
+  library(performanceEstimation)
   
 }
 

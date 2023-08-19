@@ -5,6 +5,9 @@ convert_datetime <- function() {
   
   dataset$Time <- format(as.POSIXct(dataset$trans_date_trans_time),    # Add time column
                          format = "%H:%M:%S")
+  
+  dataset$Hour <- (hms(as.character(dataset$Time)) %>% hour(.))
+  
   return(dataset)
 }
 
@@ -23,7 +26,7 @@ remove_columns <- function() {
 }
 
 rename_columns <- function() {
-  colnames(dataset) <- c("ID","Merchant","Category","Amount","Gender","City","State","Zip Code","City_Population","Job","Is_Fraud","Date","Time","Name")
+  colnames(dataset) <- c("ID","Merchant","Category","Amount","Gender","City","State","Zip Code","City_Population","Job","Is_Fraud","Date","Time","Hour","Name")
   return(dataset)
 }
 
