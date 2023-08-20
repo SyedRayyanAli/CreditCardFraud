@@ -1,3 +1,14 @@
+General_Visual <- function() {
+  dataset %>%
+    group_by(Is_Fraud) %>%
+    summarise(min = min(Amount),mean = mean(Amount), max = max(Amount))
+  
+  table(dataset$Is_Fraud)
+}
+
+
+
+
 Category_visual <- function() {
   ### How much average transaction is per category
   print(dataset %>%
