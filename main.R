@@ -18,7 +18,7 @@ dataset <- rename_columns()
 
 
 ### Data visualization
-General_visual()
+General_Visual()
 Category_visual()
 State_visual()
 Time_visual()
