@@ -1,9 +1,10 @@
 General_Visual <- function() {
-  dataset %>%
+  print(dataset %>%
     group_by(Is_Fraud) %>%
-    summarise(min = min(Amount),mean = mean(Amount), max = max(Amount))
+    summarise(min = min(Amount),mean = mean(Amount), max = max(Amount)))
   
-  table(dataset$Is_Fraud)
+  print(table(dataset$Is_Fraud))
+  
 }
 
 
@@ -44,7 +45,7 @@ State_visual <- function() {
     summarise(total = sum(Is_Fraud)) %>%
     arrange(desc(total)) %>%
     slice(1:10) %>%
-    ggplot(aes(x=reorder(State,-total),y=total)) + geom_bar(stat="identity")+ xlab("State") +
+    ggplot(aes(x=reorder(State,-total),y=total)) + geom_bar(stat="identity",col="red")+ xlab("State") +
     ylab("Frauds") + ggtitle("Total number of Frauds per State")
 
 }
@@ -63,5 +64,11 @@ Time_visual <- function() {
     summarise(total = sum(Is_Fraud)) %>%
     ggplot(aes(x=hour,y=total)) + geom_bar(stat="identity") + xlab("Hour") +
     ylab("Frauds") + ggtitle("Total number of Frauds in each hour of the day")
+  
+  dataset %>%
+    group_by(Date) %>%
+    summarise(total = sum(Is_Fraud)) %>%
+    ggplot(aes(x=Date,y=total)) + geom_line() + xlab("Date") +
+    ylab("Frauds") + ggtitle("Total number of Frauds each day")
 }
 
